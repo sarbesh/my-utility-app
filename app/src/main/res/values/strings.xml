@@ -11,4 +11,14 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="get_location">Get Location</string>
     <string name="location_coordinates">Coordinates</string>
+    <string name="day_length">Day Length :</string>
+    <string name="sunrise">sunrise:</string>
+    <string name="sunset">sunset:</string>
+    <string name="solarnoon">Solarnoon:</string>
+    <string name="civil_twinlight_begins">Civil  Begins:</string>
+    <string name="civil_twinlight_end">Civil End:</string>
+    <string name="nautical_twilight_begin">Nautical Begin:</string>
+    <string name="nautical_twilight_end">Nautical End :</string>
+    <string name="astronomical_begin">Astronomical Begin :</string>
+    <string name="astronomical_end">Astronomical End :</string>
 </resources>

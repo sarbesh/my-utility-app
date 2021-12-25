@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/solar_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SunRaiseSetActivity">
+
+    <TextView
+        android:id="@+id/astronomical_twilight_begin"
+        android:layout_width="153dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="224dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toEndOf="@+id/astronomical_twilight_begin_text"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end" />
+
+    <TextView
+        android:id="@+id/astronomical_twilight_end"
+        android:layout_width="183dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="72dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/nautical_twilight_begin"
+        android:layout_width="167dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_end" />
+
+    <TextView
+        android:id="@+id/nautical_twilight_end"
+        android:layout_width="160dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="76dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin" />
+
+    <TextView
+        android:id="@+id/civil_twilight_begin"
+        android:layout_width="145dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/civil_twinlight_text"
+        app:layout_constraintTop_toBottomOf="@+id/solar_noon" />
+
+    <TextView
+        android:id="@+id/civil_twilight_end"
+        android:layout_width="173dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="88dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/civil_twinlight_end_text"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_begin" />
+
+    <TextView
+        android:id="@+id/solar_noon"
+        android:layout_width="183dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/solar_noon_text"
+        app:layout_constraintTop_toBottomOf="@+id/sunset" />
+
+    <TextView
+        android:id="@+id/day_length"
+        android:layout_width="178dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="116dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/sunrise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/sunset"
+        android:layout_width="187dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toEndOf="@+id/sunset_text"
+        app:layout_constraintTop_toBottomOf="@+id/sunrise" />
+
+    <TextView
+        android:id="@+id/sunrise"
+        android:layout_width="175dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/sunset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toEndOf="@+id/sunrise_text" />
+
+    <TextView
+        android:id="@+id/day_length_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/day_length"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sunrise_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/sunrise"
+        app:layout_constraintBottom_toTopOf="@+id/sunset_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day_length_text"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/sunset_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/sunset"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/solar_noon_text"
+        app:layout_constraintTop_toBottomOf="@+id/sunrise_text" />
+
+    <TextView
+        android:id="@+id/solar_noon_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/solarnoon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunset_text"
+        app:layout_constraintBottom_toTopOf="@id/civil_twinlight_text"/>
+
+    <TextView
+        android:id="@+id/civil_twinlight_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/civil_twinlight_begins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solar_noon_text"
+        app:layout_constraintBottom_toTopOf="@id/civil_twinlight_end_text"/>
+
+    <TextView
+        android:id="@+id/civil_twinlight_end_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/civil_twinlight_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_text" />
+
+    <TextView
+        android:id="@+id/nautical_twilight_begin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/nautical_twilight_begin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_end_text"
+        app:layout_constraintBottom_toTopOf="@id/nautical_twilight_begin_text"/>
+
+    <TextView
+        android:id="@+id/nautical_twilight_end_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/nautical_twilight_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin_text"
+        app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_begin_text"/>
+
+    <TextView
+        android:id="@+id/astronomical_twilight_begin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/astronomical_begin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end_text"
+        app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_end_text"/>
+
+    <TextView
+        android:id="@+id/astronomical_twilight_end_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/astronomical_end"
+        app:layout_constraintEnd_toStartOf="@+id/astronomical_twilight_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin_text" />
+</androidx.constraintlayout.widget.ConstraintLayout>
