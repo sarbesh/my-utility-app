@@ -1,6 +1,7 @@
 package com.sarbesh.alarmgps;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.LocaleListCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,7 +67,7 @@ public class SunRaiseSetActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String tomorrowAsString = dateFormat.format(tomorrow);
 
         ApiClient apiClient = new ApiClient();
@@ -80,6 +82,15 @@ public class SunRaiseSetActivity extends AppCompatActivity {
                         Log.i("response", results.toString());
                         //TODO: Fix layout design and map data to filed
                         sunrise.setText(results.getSunrise());
+                        sunset.setText(results.getSunset());
+                        dayLength.setText(results.getDayLength());
+                        solarNoon.setText(results.getSolarNoon());
+                        civilTwilightBegin.setText(results.getCivilTwilightBegin());
+                        civilTwilightEnd.setText(results.getCivilTwilightEnd());
+                        nauticalTwilightBegin.setText(results.getNauticalTwilightBegin());
+                        nauticalTwilightEnd.setText(results.getNauticalTwilightEnd());
+                        astronomicalTwilightBegin.setText(results.getAstronomicalTwilightBegin());
+                        astronomicalTwilightEnd.setText(results.getAstronomicalTwilightEnd());
                     }
                 }
             }
