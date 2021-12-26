@@ -114,6 +114,7 @@
         app:layout_constraintStart_toEndOf="@+id/astronomical_twilight_begin_text"
         app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end"/>
 
+
     <TextView
         android:id="@+id/astronomical_twilight_end"
         android:layout_width="150dp"
@@ -124,12 +125,12 @@
         android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin" />
-
+        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin"
+        app:layout_constraintStart_toEndOf="@id/astronomical_twilight_end_text"/>
 
     <TextView
         android:id="@+id/day_length_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="50dp"
@@ -141,7 +142,7 @@
 
     <TextView
         android:id="@+id/sunrise_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -153,7 +154,7 @@
 
     <TextView
         android:id="@+id/sunset_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -165,7 +166,7 @@
 
     <TextView
         android:id="@+id/solar_noon_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -177,7 +178,7 @@
 
     <TextView
         android:id="@+id/civil_twinlight_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -189,7 +190,7 @@
 
     <TextView
         android:id="@+id/civil_twinlight_end_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -201,7 +202,7 @@
 
     <TextView
         android:id="@+id/nautical_twilight_begin_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -213,7 +214,7 @@
 
     <TextView
         android:id="@+id/nautical_twilight_end_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -225,7 +226,7 @@
 
     <TextView
         android:id="@+id/astronomical_twilight_begin_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
@@ -237,7 +238,7 @@
 
     <TextView
         android:id="@+id/astronomical_twilight_end_text"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"

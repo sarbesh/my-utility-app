@@ -89,7 +89,6 @@ public class SunRaiseSetActivity extends AppCompatActivity {
                         SimpleDateFormat localFormat = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());
                         localFormat.setTimeZone(TimeZone.getDefault());
 
-                        //TODO: Fix layout design and map data to filed
                         try{
                             sunrise.setText(utcToLocal(utcFormat,localFormat,results.getSunrise()));
                             sunset.setText(results.getSunset());
