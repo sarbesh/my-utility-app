@@ -1,12 +1,13 @@
 package com.sarbesh.alarmgps;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.os.LocaleListCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sarbesh.alarmgps.dto.RiseSetApiResponse;
 import com.sarbesh.alarmgps.dto.RiseSetResponse;
@@ -14,11 +15,12 @@ import com.sarbesh.alarmgps.service.SunriseSetService;
 import com.sarbesh.alarmgps.utils.ApiClient;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -80,25 +82,46 @@ public class SunRaiseSetActivity extends AppCompatActivity {
                     if(null!=body) {
                         RiseSetResponse results = body.getResults();
                         Log.i("response", results.toString());
+
+                        SimpleDateFormat utcFormat = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());
+                        utcFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+                        SimpleDateFormat localFormat = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());
+                        localFormat.setTimeZone(TimeZone.getDefault());
+
                         //TODO: Fix layout design and map data to filed
-                        sunrise.setText(results.getSunrise());
-                        sunset.setText(results.getSunset());
-                        dayLength.setText(results.getDayLength());
-                        solarNoon.setText(results.getSolarNoon());
-                        civilTwilightBegin.setText(results.getCivilTwilightBegin());
-                        civilTwilightEnd.setText(results.getCivilTwilightEnd());
-                        nauticalTwilightBegin.setText(results.getNauticalTwilightBegin());
-                        nauticalTwilightEnd.setText(results.getNauticalTwilightEnd());
-                        astronomicalTwilightBegin.setText(results.getAstronomicalTwilightBegin());
-                        astronomicalTwilightEnd.setText(results.getAstronomicalTwilightEnd());
+                        try{
+                            sunrise.setText(utcToLocal(utcFormat,localFormat,results.getSunrise()));
+                            sunset.setText(results.getSunset());
+                            dayLength.setText(results.getDayLength());
+                            solarNoon.setText(results.getSolarNoon());
+                            civilTwilightBegin.setText(results.getCivilTwilightBegin());
+                            civilTwilightEnd.setText(results.getCivilTwilightEnd());
+                            nauticalTwilightBegin.setText(results.getNauticalTwilightBegin());
+                            nauticalTwilightEnd.setText(results.getNauticalTwilightEnd());
+                            astronomicalTwilightBegin.setText(results.getAstronomicalTwilightBegin());
+                            astronomicalTwilightEnd.setText(results.getAstronomicalTwilightEnd());
+                        } catch (ParseException ex){
+                            showToast("ParseException");
+                        }
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<RiseSetApiResponse> call, Throwable t) {
+                showToast("Call failed");
                 call.cancel();
             }
         });
+    }
+
+    private String utcToLocal(SimpleDateFormat utcFormat, SimpleDateFormat localFormat, String input) throws ParseException {
+        Date date = utcFormat.parse(input);
+        return localFormat.format(date);
+    }
+
+    private void showToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

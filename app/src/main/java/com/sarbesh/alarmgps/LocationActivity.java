@@ -58,8 +58,10 @@ public class LocationActivity extends AppCompatActivity {
         if(locationService.canGetLocation()){
             this.latitude = locationService.getLatitude();
             this.longitude = locationService.getLongitude();
-            Log.d("Location",latitude+" "+longitude);
-            showLocation.setText(MessageFormat.format("Your Location: \n Latitude: {0}\n Longitude: {1}", latitude, longitude));
+            Log.d("Location",this.latitude+" "+this.longitude);
+            showLocation.setText(MessageFormat.format(
+                    "Your Location: \n Latitude: {0}\n Longitude: {1}",
+                    String.valueOf(this.latitude), String.valueOf(this.longitude)));
             return true;
         } else {
             locationService.alertForLocationSetting();
