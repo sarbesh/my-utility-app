@@ -28,8 +28,6 @@ import retrofit2.Response;
 
 public class SunRaiseSetActivity extends AppCompatActivity {
 
-    private SunriseSetService sunriseSetService;
-
     private TextView sunset;
     private TextView sunrise;
     private TextView dayLength;
@@ -83,25 +81,25 @@ public class SunRaiseSetActivity extends AppCompatActivity {
                         RiseSetResponse results = body.getResults();
                         Log.i("response", results.toString());
 
-                        SimpleDateFormat utcFormat = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());
+                        SimpleDateFormat utcFormat = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
                         utcFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-                        SimpleDateFormat localFormat = new SimpleDateFormat("HH:mm:ss a", Locale.getDefault());
+                        SimpleDateFormat localFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
                         localFormat.setTimeZone(TimeZone.getDefault());
 
                         try{
                             sunrise.setText(utcToLocal(utcFormat,localFormat,results.getSunrise()));
-                            sunset.setText(results.getSunset());
+                            sunset.setText(utcToLocal(utcFormat,localFormat,results.getSunset()));
                             dayLength.setText(results.getDayLength());
-                            solarNoon.setText(results.getSolarNoon());
-                            civilTwilightBegin.setText(results.getCivilTwilightBegin());
-                            civilTwilightEnd.setText(results.getCivilTwilightEnd());
-                            nauticalTwilightBegin.setText(results.getNauticalTwilightBegin());
-                            nauticalTwilightEnd.setText(results.getNauticalTwilightEnd());
-                            astronomicalTwilightBegin.setText(results.getAstronomicalTwilightBegin());
-                            astronomicalTwilightEnd.setText(results.getAstronomicalTwilightEnd());
+                            solarNoon.setText(utcToLocal(utcFormat,localFormat,results.getSolarNoon()));
+                            civilTwilightBegin.setText(utcToLocal(utcFormat,localFormat,results.getCivilTwilightBegin()));
+                            civilTwilightEnd.setText(utcToLocal(utcFormat,localFormat,results.getCivilTwilightEnd()));
+                            nauticalTwilightBegin.setText(utcToLocal(utcFormat,localFormat,results.getNauticalTwilightBegin()));
+                            nauticalTwilightEnd.setText(utcToLocal(utcFormat,localFormat,results.getNauticalTwilightEnd()));
+                            astronomicalTwilightBegin.setText(utcToLocal(utcFormat,localFormat,results.getAstronomicalTwilightBegin()));
+                            astronomicalTwilightEnd.setText(utcToLocal(utcFormat,localFormat,results.getAstronomicalTwilightEnd()));
                         } catch (ParseException ex){
-                            showToast("ParseException");
+                            showToast(" Date ParseException");
                         }
                     }
                 }

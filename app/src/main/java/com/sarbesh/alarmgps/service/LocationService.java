@@ -54,10 +54,12 @@ public class LocationService extends Service implements LocationListener {
             } else {
                 this.canGetLocation = true;
                 if (isGpsEnabled) {
+                    showToast("Using GPS");
                     Log.d("Location", "Getting location from GPS");
                     setLatLong(LocationManager.GPS_PROVIDER);
                 }
                 if (isNetworkEnabled) {
+                    showToast("GPS not enabled, using Network");
                     Log.d("Location", "Getting location from NETWORK");
                     setLatLong(LocationManager.NETWORK_PROVIDER);
                 }
@@ -220,5 +222,10 @@ public class LocationService extends Service implements LocationListener {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+
+    private void showToast(String message){
+        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 }
