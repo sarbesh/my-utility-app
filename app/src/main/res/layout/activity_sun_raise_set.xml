@@ -9,136 +9,138 @@
 
     <TextView
         android:id="@+id/day_length"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toTopOf="@+id/sunrise"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/day_length_text"/>
+        app:layout_constraintStart_toEndOf="@id/day_length_text"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sunrise"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toTopOf="@+id/sunset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/day_length"
-        app:layout_constraintStart_toEndOf="@+id/sunrise_text" />
+        app:layout_constraintStart_toEndOf="@+id/sunrise_text"
+        app:layout_constraintTop_toBottomOf="@id/day_length" />
 
     <TextView
         android:id="@+id/sunset"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/solar_noon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sunset_text"
-        app:layout_constraintTop_toBottomOf="@+id/sunrise"
-        app:layout_constraintBottom_toTopOf="@id/solar_noon" />
+        app:layout_constraintTop_toBottomOf="@+id/sunrise" />
 
     <TextView
         android:id="@+id/solar_noon"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/civil_twilight_begin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/solar_noon_text"
-        app:layout_constraintTop_toBottomOf="@+id/sunset"
-        app:layout_constraintBottom_toTopOf="@id/civil_twilight_begin"/>
+        app:layout_constraintTop_toBottomOf="@+id/sunset" />
+
     <TextView
         android:id="@+id/civil_twilight_begin"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/civil_twilight_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/civil_twinlight_text"
-        app:layout_constraintTop_toBottomOf="@+id/solar_noon"
-        app:layout_constraintBottom_toTopOf="@id/civil_twilight_end"/>
+        app:layout_constraintTop_toBottomOf="@+id/solar_noon" />
 
     <TextView
         android:id="@+id/civil_twilight_end"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/nautical_twilight_begin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/civil_twinlight_end_text"
-        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_begin"
-        app:layout_constraintBottom_toTopOf="@id/nautical_twilight_begin"/>
+        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_begin" />
 
     <TextView
         android:id="@+id/nautical_twilight_begin"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/nautical_twilight_end"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_end"
         app:layout_constraintStart_toEndOf="@id/nautical_twilight_begin_text"
-        app:layout_constraintBottom_toTopOf="@id/nautical_twilight_end"/>
+        app:layout_constraintTop_toBottomOf="@+id/civil_twilight_end" />
 
     <TextView
         android:id="@+id/nautical_twilight_end"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_begin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin"
         app:layout_constraintStart_toEndOf="@id/nautical_twilight_end_text"
-        app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_begin"/>
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin" />
 
     <TextView
         android:id="@+id/astronomical_twilight_begin"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="90dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/astronomical_twilight_begin_text"
-        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end"/>
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end" />
 
 
     <TextView
         android:id="@+id/astronomical_twilight_end"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="90dp"
         android:layout_marginBottom="50dp"
         android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin"
-        app:layout_constraintStart_toEndOf="@id/astronomical_twilight_end_text"/>
+        app:layout_constraintStart_toEndOf="@id/astronomical_twilight_end_text"
+        app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin" />
 
     <TextView
         android:id="@+id/day_length_text"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="50dp"
+        android:layout_marginStart="28dp"
         android:text="@string/day_length"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sunrise_text"
         app:layout_constraintEnd_toStartOf="@id/day_length"
-        app:layout_constraintBottom_toTopOf="@id/sunrise_text"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sunrise_text"
@@ -147,10 +149,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/sunrise"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/sunset_text"
+        app:layout_constraintEnd_toStartOf="@id/sunrise"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/day_length_text"
-        app:layout_constraintEnd_toStartOf="@id/sunrise"/>
+        app:layout_constraintTop_toBottomOf="@+id/day_length_text" />
 
     <TextView
         android:id="@+id/sunset_text"
@@ -159,10 +162,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/sunset"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/solar_noon_text"
-        app:layout_constraintTop_toBottomOf="@+id/sunrise_text"
-        app:layout_constraintEnd_toStartOf="@id/sunset"/>
+        app:layout_constraintEnd_toStartOf="@id/sunset"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunrise_text" />
 
     <TextView
         android:id="@+id/solar_noon_text"
@@ -171,10 +175,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/solarnoon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sunset_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/civil_twinlight_text"
-        app:layout_constraintEnd_toStartOf="@id/solar_noon"/>
+        app:layout_constraintEnd_toStartOf="@id/solar_noon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunset_text" />
 
     <TextView
         android:id="@+id/civil_twinlight_text"
@@ -183,10 +188,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/civil_twinlight_begins"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/solar_noon_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/civil_twinlight_end_text"
-        app:layout_constraintEnd_toStartOf="@id/civil_twilight_begin"/>
+        app:layout_constraintEnd_toStartOf="@id/civil_twilight_begin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solar_noon_text" />
 
     <TextView
         android:id="@+id/civil_twinlight_end_text"
@@ -195,10 +201,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/civil_twinlight_end"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/nautical_twilight_begin_text"
-        app:layout_constraintEnd_toStartOf="@id/civil_twilight_end"/>
+        app:layout_constraintEnd_toStartOf="@id/civil_twilight_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_text" />
 
     <TextView
         android:id="@+id/nautical_twilight_begin_text"
@@ -207,10 +214,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/nautical_twilight_begin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_end_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/nautical_twilight_end_text"
-        app:layout_constraintEnd_toStartOf="@id/nautical_twilight_begin"/>
+        app:layout_constraintEnd_toStartOf="@id/nautical_twilight_begin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civil_twinlight_end_text" />
 
     <TextView
         android:id="@+id/nautical_twilight_end_text"
@@ -219,10 +227,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/nautical_twilight_end"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_begin_text"
-        app:layout_constraintEnd_toStartOf="@id/nautical_twilight_end"/>
+        app:layout_constraintEnd_toStartOf="@id/nautical_twilight_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_begin_text" />
 
     <TextView
         android:id="@+id/astronomical_twilight_begin_text"
@@ -231,10 +240,11 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="30dp"
         android:text="@string/astronomical_begin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end_text"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/astronomical_twilight_end_text"
-        app:layout_constraintEnd_toStartOf="@id/astronomical_twilight_begin"/>
+        app:layout_constraintEnd_toStartOf="@id/astronomical_twilight_begin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nautical_twilight_end_text" />
 
     <TextView
         android:id="@+id/astronomical_twilight_end_text"
@@ -244,8 +254,32 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="50dp"
         android:text="@string/astronomical_end"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/astronomical_twilight_end"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/astronomical_twilight_begin_text" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/textview"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,20 +8,38 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlarmGPS">
         <activity
-            android:name=".SunRaiseSetActivity"
-            android:exported="false" />
+            android:name=".FixedDeposit"
+            android:label="Fixed Deposit Calc"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
-            android:name=".LocationActivity"
-            android:exported="true">
+            android:name=".ScrollingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/Theme.AlarmGPS.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,10 +47,52 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LicActivity"
+            android:exported="false"
+            android:label="LIC Calc">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".SunRaiseSetActivity"
+            android:exported="false"
+            android:label="SunTime data"
+            android:parentActivityName=".LocationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LocationActivity" />
+        </activity>
+        <activity
+            android:name=".LocationActivity"
+            android:exported="true"
+            android:label="Location Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".BasicActivity"
             android:exported="false"
             android:label="@string/title_activity_basic"
-            android:theme="@style/Theme.AlarmGPS.NoActionBar" />
+            android:theme="@style/Theme.AlarmGPS.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <receiver
+            android:name=".service.AutoStartAlarm"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.AlarmService"
+            android:exported="false" />
     </application>
 
 </manifest>

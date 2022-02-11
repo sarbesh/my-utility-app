@@ -3,11 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-land/activity_fd.xml" value="0.33" />
+        <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.116796875" />
+        <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.10211748633879782" />
         <entry key="app/src/main/res/layout/activity_basic.xml" value="0.11322463768115942" />
-        <entry key="app/src/main/res/layout/activity_location.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_sun_raise_set.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/content_basic.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_fd.xml" value="0.4218009478672986" />
+        <entry key="app/src/main/res/layout/activity_lic.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_location.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.13541666666666666" />
+        <entry key="app/src/main/res/layout/activity_sun_raise_set.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/content_basic.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1403985507246377" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1403985507246377" />
+        <entry key="app/src/main/res/layout/include_progress_overlay.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/menu/menu_scrolling.xml" value="0.22" />
       </map>
     </option>
   </component>
@@ -16,5 +29,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

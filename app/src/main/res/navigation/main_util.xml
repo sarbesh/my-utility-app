@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_util.xml"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.sarbesh.alarmgps.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/licActivity"
+        android:name="com.sarbesh.alarmgps.LicActivity"
+        android:label="activity_lic"
+        tools:layout="@layout/activity_lic" />
+    <activity
+        android:id="@+id/locationActivity"
+        android:name="com.sarbesh.alarmgps.LocationActivity"
+        android:label="activity_location"
+        tools:layout="@layout/activity_location" />
+    <activity
+        android:id="@+id/fixedDeposit"
+        android:name="com.sarbesh.alarmgps.FixedDeposit"
+        android:label="activity_fd"
+        tools:layout="@layout/activity_fd" />
+    <action
+        android:id="@+id/action_global_fixedDeposit"
+        app:destination="@id/fixedDeposit"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    <action
+        android:id="@+id/action_global_licActivity"
+        app:destination="@id/licActivity"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_exit_anim" />
+    <action
+        android:id="@+id/action_global_locationActivity"
+        app:destination="@id/locationActivity"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    <action
+        android:id="@+id/action_global_mainActivity"
+        app:destination="@id/mainActivity"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_exit_anim" />
+</navigation>

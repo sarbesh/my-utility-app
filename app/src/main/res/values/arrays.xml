@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="payout_period">
+        <item>Annually</item>
+        <item>Semiannual</item>
+        <item>Quarterly</item>
+    </string-array>
+
+    <string-array name="lock_period">
+        <item>Days</item>
+        <item>Months</item>
+        <item>Yearly</item>
+    </string-array>
+</resources>

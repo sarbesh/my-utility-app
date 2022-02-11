@@ -1,17 +1,22 @@
 package com.sarbesh.alarmgps;
 
+import static com.sarbesh.alarmgps.utils.AndroidUtils.showToast;
+import static com.sarbesh.alarmgps.utils.AndroidUtils.utcToLocal;
+import static com.sarbesh.alarmgps.utils.Constants.LATITUDE;
+import static com.sarbesh.alarmgps.utils.Constants.LONGITUDE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sarbesh.alarmgps.dto.RiseSetApiResponse;
 import com.sarbesh.alarmgps.dto.RiseSetResponse;
-import com.sarbesh.alarmgps.service.SunriseSetService;
 import com.sarbesh.alarmgps.utils.ApiClient;
 
 import java.text.DateFormat;
@@ -38,15 +43,27 @@ public class SunRaiseSetActivity extends AppCompatActivity {
     private TextView nauticalTwilightEnd;
     private TextView astronomicalTwilightBegin;
     private TextView astronomicalTwilightEnd;
+    private TextView tomorrowDate;
+
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sun_raise_set);
 
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress(0);
+
         Intent intent = getIntent();
-        double lat = intent.getDoubleExtra("Latitude",0);
-        double lng = intent.getDoubleExtra("Longitude",0);
+        double lat = intent.getDoubleExtra(LATITUDE,0);
+        double lng = intent.getDoubleExtra(LONGITUDE,0);
+
+        // Show progress overlay (with animation):
+//        AndroidUtils.animateView(progressOverlay, View.VISIBLE, 0.4f, 200);
 
         sunrise = findViewById(R.id.sunrise);
         sunset = findViewById(R.id.sunset);
@@ -58,23 +75,31 @@ public class SunRaiseSetActivity extends AppCompatActivity {
         nauticalTwilightEnd = findViewById(R.id.nautical_twilight_end);
         astronomicalTwilightBegin = findViewById(R.id.astronomical_twilight_begin);
         astronomicalTwilightEnd = findViewById(R.id.astronomical_twilight_end);
+        tomorrowDate = findViewById(R.id.DateView);
 
         loadData(lat,lng);
+
+        // Hide it (with animation):
+//        AndroidUtils.animateView(progressOverlay, View.GONE, 0, 200);
 
     }
 
     private void loadData(double lat, double lng){
+        progressBar.setProgress(10);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String tomorrowAsString = dateFormat.format(tomorrow);
+        tomorrowDate.setText(tomorrowAsString);
 
         ApiClient apiClient = new ApiClient();
         Call<RiseSetApiResponse> sunRiseSet = apiClient.getSunriseSet().getSunRiseSet(lat,lng,tomorrowAsString);
+        progressBar.setProgress(20);
         sunRiseSet.enqueue(new Callback<RiseSetApiResponse>() {
             @Override
             public void onResponse(Call<RiseSetApiResponse> call, Response<RiseSetApiResponse> response) {
+                progressBar.setProgress(75);
                 if(response.isSuccessful()){
                     RiseSetApiResponse body = response.body();
                     if(null!=body) {
@@ -86,7 +111,7 @@ public class SunRaiseSetActivity extends AppCompatActivity {
 
                         SimpleDateFormat localFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
                         localFormat.setTimeZone(TimeZone.getDefault());
-
+                        progressBar.setProgress(85);
                         try{
                             sunrise.setText(utcToLocal(utcFormat,localFormat,results.getSunrise()));
                             sunset.setText(utcToLocal(utcFormat,localFormat,results.getSunset()));
@@ -101,6 +126,9 @@ public class SunRaiseSetActivity extends AppCompatActivity {
                         } catch (ParseException ex){
                             showToast(" Date ParseException");
                         }
+                        progressBar.setProgress(100);
+                        Log.d("ProgressBar","Cancelling progressbar");
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
             }
@@ -109,13 +137,11 @@ public class SunRaiseSetActivity extends AppCompatActivity {
             public void onFailure(Call<RiseSetApiResponse> call, Throwable t) {
                 showToast("Call failed");
                 call.cancel();
+                progressBar.setProgress(100);
+                Log.d("ProgressBar","Cancelling progressbar");
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
-    }
-
-    private String utcToLocal(SimpleDateFormat utcFormat, SimpleDateFormat localFormat, String input) throws ParseException {
-        Date date = utcFormat.parse(input);
-        return localFormat.format(date);
     }
 
     private void showToast(String message){

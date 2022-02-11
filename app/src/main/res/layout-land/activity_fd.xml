@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fd_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".FixedDeposit">
+
+    <TextView
+        android:id="@+id/principal_amt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/amount"
+        app:layout_constraintBottom_toTopOf="@id/period"
+        app:layout_constraintEnd_toStartOf="@id/editPrincipal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/principal_amount_hint"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#00838F"
+        app:layout_constraintBottom_toTopOf="@id/period_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/principal_amt"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/period"
+        app:layout_constraintBottom_toTopOf="@id/investment_period"
+        app:layout_constraintEnd_toStartOf="@id/period_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/principal_amt" />
+
+    <Spinner
+        android:id="@+id/period_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/investment_period_hint"
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@id/editTimePeriod"
+        app:layout_constraintEnd_toStartOf="@id/payout"
+        app:layout_constraintStart_toEndOf="@id/period"
+        app:layout_constraintTop_toBottomOf="@id/principal_amt" />
+
+    <TextView
+        android:id="@+id/payout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/payout"
+        app:layout_constraintBottom_toTopOf="@id/rate_interest"
+        app:layout_constraintEnd_toStartOf="@id/payout_spinner"
+        app:layout_constraintStart_toEndOf="@id/period_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/editPrincipal" />
+
+    <Spinner
+        android:id="@+id/payout_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/payout_hint"
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@id/editInterestRate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/payout"
+        app:layout_constraintTop_toBottomOf="@id/editPrincipal" />
+
+    <TextView
+        android:id="@+id/investment_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/investment_period"
+        app:layout_constraintBottom_toTopOf="@id/calculate"
+        app:layout_constraintEnd_toStartOf="@id/editTimePeriod"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/period" />
+
+
+    <EditText
+        android:id="@+id/editTimePeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/time_period_hint"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#00838F"
+        app:layout_constraintBottom_toTopOf="@id/calculate"
+        app:layout_constraintEnd_toStartOf="@id/rate_interest"
+        app:layout_constraintStart_toEndOf="@id/investment_period"
+        app:layout_constraintTop_toBottomOf="@id/period_spinner" />
+
+    <TextView
+        android:id="@+id/rate_interest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/interest_rate"
+        app:layout_constraintBottom_toTopOf="@id/calculate"
+        app:layout_constraintEnd_toStartOf="@id/editInterestRate"
+        app:layout_constraintStart_toEndOf="@id/editTimePeriod"
+        app:layout_constraintTop_toBottomOf="@+id/payout" />
+
+    <EditText
+        android:id="@+id/editInterestRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/interest_rate_hint"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#00838F"
+        app:layout_constraintBottom_toTopOf="@id/calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rate_interest"
+        app:layout_constraintTop_toBottomOf="@id/payout_spinner" />
+
+    <TextView
+        android:id="@+id/maturity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/maturity_value"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/maturity_value_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculate" />
+
+    <TextView
+        android:id="@+id/interest_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/interest_value"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/interest_value_view"
+        app:layout_constraintStart_toEndOf="@id/maturity_value_view"
+        app:layout_constraintTop_toBottomOf="@id/calculate" />
+
+    <TextView
+        android:id="@+id/maturity_value_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/textview"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/interest_value"
+        app:layout_constraintStart_toEndOf="@id/maturity"
+        app:layout_constraintTop_toBottomOf="@id/calculate" />
+
+    <TextView
+        android:id="@+id/interest_value_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/textview"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/interest_value"
+        app:layout_constraintTop_toBottomOf="@id/calculate" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:enabled="true"
+        android:onClick="calculateInterest"
+        android:text="@string/calculate"
+        app:layout_constraintBottom_toTopOf="@+id/maturity_value_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editInterestRate" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/layer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="principal_amt,editPrincipal,period,period_spinner,payout,
+        payout_spinner,investment_period,editInterestRate,editTimePeriod,rate_interest,
+calculate,maturity,maturity_value_view,interest_value,interest_value_view"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
